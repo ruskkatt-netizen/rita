@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rita Djur! 🐾 – teckningsguide för barn</title>
+  <meta name="description" content="Interaktiv teckningsguide på svenska: lär dig rita djur steg för steg med videor – grundform, skuggning, detaljer och slutfinish – och rita själv direkt på sidan." />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐾</text></svg>" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="top">
+    <div class="top-inner">
+      <div class="brand">
+        <h1>🎨 Rita Djur!</h1>
+        <p class="tagline">Välj ett djur – se videon, följ stegen och rita själv. Så här blir bilden när den är klar!</p>
+      </div>
+      <div class="top-side">
+        <div id="starBadge" class="star-badge" title="Dina stjärnor">⭐ <span id="starCount">0</span></div>
+        <nav class="nav">
+          <a href="#/" data-nav="home" class="nav-link">🏠 Alla djur</a>
+          <a href="#/quiz" data-nav="quiz" class="nav-link">🧠 Quiz</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <section id="view-home" class="view">
+      <div class="search-row">
+        <input id="searchInput" type="search" placeholder="🔍 Sök efter ett djur… (t.ex. katt)" aria-label="Sök djur" />
+      </div>
+      <div id="animalGrid" class="grid"></div>
+
+      <h2 class="section-title">🖼️ Min ritgalleri</h2>
+      <p class="section-sub">Här sparas bilderna du ritat på fliken ”Rita själv”.</p>
+      <div id="gallery" class="gallery"><p class="empty">Inga bilder än – rita något och spara det! ✏️</p></div>
+    </section>
+
+    <section id="view-animal" class="view" hidden>
+      <button id="backBtn" class="btn ghost">← Tillbaka till alla djur</button>
+      <div class="animal-head">
+        <div id="animalPreview" class="animal-preview" aria-hidden="true"></div>
+        <div class="animal-info">
+          <h2 id="animalTitle"></h2>
+          <div id="animalLevel" class="level" aria-label="Svårighetsgrad"></div>
+          <button id="doneBtn" class="btn star-btn">⭐ Jag klarade den!</button>
+        </div>
+      </div>
+
+      <div class="tabs" role="tablist">
+        <button class="tab active" data-tab="video" role="tab" aria-selected="true">🎬 Video</button>
+        <button class="tab" data-tab="steg" role="tab" aria-selected="false">👣 Steg för steg</button>
+        <button class="tab" data-tab="rita" role="tab" aria-selected="false">🖍️ Rita själv</button>
+      </div>
+
+      <div id="tab-video" class="tab-pane">
+        <div class="video-layout">
+          <div class="video-box">
+            <div id="videoMount" class="video-mount"></div>
+            <div class="video-links">
+              <a id="ytLink" class="btn ghost" target="_blank" rel="noopener noreferrer">▶ Öppna videon på YouTube</a>
+              <a id="ytSearch" class="btn ghost" target="_blank" rel="noopener noreferrer">🔍 Fler videor om att rita djuret</a>
+            </div>
+          </div>
+          <div class="result-box">
+            <h3>✨ Så här blir resultatet!</h3>
+            <div id="resultPreview" class="result-preview"></div>
+            <p class="hint">Så kan din bild se ut när alla fyra steg är klara: grundform, skuggning, detaljer och slutfinish.</p>
+          </div>
+        </div>
+      </div>
+
+      <div id="tab-steg" class="tab-pane" hidden>
+        <div class="stepper">
+          <div class="step-head">
+            <span id="stepPhase" class="phase-badge"></span>
+            <span id="stepCount" class="step-count"></span>
+          </div>
+          <div class="progress" aria-hidden="true"><div id="stepBar" class="progress-bar"></div></div>
+          <div id="stepStage" class="step-stage"></div>
+          <p id="stepText" class="step-text"></p>
+          <p id="stepTip" class="step-tip"></p>
+          <div class="step-nav">
+            <button id="prevStep" class="btn ghost">⬅ Föregående</button>
+            <button id="nextStep" class="btn primary">Nästa ➡</button>
+          </div>
+        </div>
+      </div>
+
+      <div id="tab-rita" class="tab-pane" hidden>
+        <div class="draw-tools">
+          <div id="palette" class="palette" role="group" aria-label="Färger"></div>
+          <label class="size-label">Pensel
+            <input id="brushSize" type="range" min="2" max="40" value="8" />
+          </label>
+          <button id="eraserBtn" class="btn ghost" aria-pressed="false">🧽 Sudd</button>
+          <button id="traceBtn" class="btn ghost" aria-pressed="false">👻 Visa målbild</button>
+          <button id="clearBtn" class="btn ghost">🗑️ Rensa</button>
+          <button id="saveBtn" class="btn primary">💾 Spara i galleriet</button>
+          <a id="downloadBtn" class="btn ghost" download="min-bild.png">⬇️ Ladda ner</a>
+        </div>
+        <div class="canvas-wrap">
+          <canvas id="drawCanvas" width="900" height="600"></canvas>
+          <div id="traceOverlay" class="trace-overlay" hidden></div>
+        </div>
+        <p id="drawMsg" class="draw-msg" role="status"></p>
+      </div>
+    </section>
+
+    <section id="view-quiz" class="view" hidden>
+      <h2>🧠 Gissa djuret!</h2>
+      <p class="section-sub">Titta på bilden – vilket djur är det? Rätt svar ger en stjärna ⭐</p>
+      <div id="quizBox" class="quiz-box"></div>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <p>Videorna länkas från YouTube (inbäddade utan spårning). Stjärnor och bilder sparas bara i din egen webbläsare. 🐾</p>
+  </footer>
+
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
