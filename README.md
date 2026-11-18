@@ -5,8 +5,9 @@ En interaktiv teckningsguide på svenska för barn (ca 8–12 år) – tänkt so
 ## Funktioner
 
 - **16 djur** (katt, hund, kanin, fågel, fisk, gris, anka, uggla, björn, räv, apa, tiger, ko, lejon, häst, elefant) – varje djurkort visar tydligt **hur den färdiga bilden blir**.
-- **🎬 Video-flik** – inbäddad YouTube-video (via `youtube-nocookie`, utan spårning) bredvid en stor ruta **"✨ Så här blir resultatet!"** med slutbilden. Länkar för att öppna videon på YouTube och för att söka fler videor.
-- **👣 Steg för steg** – fyra faser anpassade för en tioåring: **Grundform → Skuggning → Detaljer → Slutfinish**, med progressionsindikator, svg som byggs upp stegvis och ett tips per djur.
+- **Realistiska men förenklade bilder** – djuren ritas från sidan med riktiga proportioner (inte tecknade ansikten), i enkel stil som funkar på papper.
+- **🎬 Video-flik** – inbäddad **kort** YouTube-video (oftast 1–2 min, via `youtube-nocookie` utan spårning) bredvid en stor ruta **"✨ Så här blir resultatet!"** med slutbilden. Länkar för att öppna videon på YouTube och för att söka fler videor.
+- **👣 Steg för steg** – fyra faser anpassade för nivå ~10 år med **fokus på skuggning**: **Grundform → Skuggning → Detaljer → Slutfinish**, med progressionsindikator, SVG som byggs upp stegvis och ett tips per djur.
 - **🖍️ Rita själv** – egen rityta med färgpalett, penselstorlek, suddgummi, möjlighet att visa målbilden svagt (spåra), rensa, spara till **Min ritgalleri** (localStorage) och ladda ner som PNG.
 - **🧠 Quiz** – "Gissa djuret!" med 8 slumpade frågor; rätt svar ger stjärnor.
 - **⭐ Stjärnor** – samla stjärnor när du klarar ett djur eller svarar rätt i quizet (sparas i webbläsarens localStorage).
@@ -59,4 +60,4 @@ Varje `steg`-fragment är SVG-innehåll i en `viewBox="0 0 200 200"`. Stegen vis
 
 ## Videolänkar
 
-Videorna hittades via webbsökning efter ”how to draw … for kids” och länkas/inbäddas från YouTube. Vill du byta ut en video ändrar du bara `video`-id:t i `data.js`. ”Fler videor”-länken går till en YouTube-sökning på svenska.
+Videorna är valda för att vara **korta** (titel/varaktighet "in 1 minute", "30 seconds", "2 minutes", "#shorts") och hittades via webbsökning efter ”how to draw … in 1 minute / 60 seconds”. De länkas/inbäddas från YouTube. Vill du byta ut en video ändrar du bara `video`-id:t i `data.js`. ”Fler videor”-länken går till en YouTube-sökning på svenska.
