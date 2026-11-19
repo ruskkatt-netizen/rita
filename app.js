@@ -147,6 +147,7 @@ function visaDjur(d) {
   state.steg = 1;
   state.tab = "video";
   state.videoLaddad = false;
+  if (ytPlayer) { try { ytPlayer.destroy(); } catch (e) {} ytPlayer = null; ytReady = false; }
 
   $("view-animal").hidden = false;
   $("animalTitle").textContent = d.emoji + " " + d.namn;
@@ -199,6 +200,7 @@ function växlaTab(tab) {
   $("tab-steg").hidden = tab !== "steg";
   $("tab-rita").hidden = tab !== "rita";
   if (tab === "video") laddaVideo();
+  if (tab === "steg") ensureStepVideo();
 }
 
 document.querySelectorAll(".tab").forEach((t) => {
@@ -220,7 +222,9 @@ function renderaSteg() {
   const max = d.steg.length;
   state.steg = Math.min(Math.max(state.steg, 1), max);
   $("stepStage").innerHTML = djurSVG(d, state.steg);
-  $("stepPhase").textContent = "Steg " + state.steg + " · " + FASER[state.steg - 1];
+  const stegNamn = (d.stegNamn && d.stegNamn[state.steg - 1]) || FASER[state.steg - 1];
+  $("stepPhase").textContent = "Steg " + state.steg + " · " + stegNamn;
+  applyStepSeek();
   $("stepCount").textContent = state.steg + " / " + max;
   $("stepBar").style.width = (state.steg / max) * 100 + "%";
   $("stepText").textContent = d.stegText[state.steg - 1];
@@ -446,6 +450,61 @@ function renderaQuizFråga() {
     q.index++;
     renderaQuizFråga();
   });
+}
+
+/* ---------- Videodel per steg (YouTube IFrame API) ---------- */
+
+let ytPlayer = null;
+let ytReady = false;
+let ytLaddar = false;
+let ytMisslyckades = false;
+
+function ensureStepVideo() {
+  if (!state.djur || ytMisslyckades) return;
+  if (ytPlayer) { applyStepSeek(); return; }
+  if (ytLaddar) return;
+  ytLaddar = true;
+  window.onYouTubeIframeAPIReady = function () {
+    ytLaddar = false;
+    skapaStegVideo();
+  };
+  const s = document.createElement("script");
+  s.src = "https://www.youtube.com/iframe_api";
+  s.onerror = function () { ytMisslyckades = true; ytLaddar = false; };
+  document.head.appendChild(s);
+  setTimeout(function () {
+    if (ytLaddar && !ytPlayer) { ytMisslyckades = true; ytLaddar = false; }
+  }, 8000);
+}
+
+function skapaStegVideo() {
+  if (!window.YT || !YT.Player || !state.djur) { ytMisslyckades = true; return; }
+  try {
+    ytPlayer = new YT.Player("stepVideoMount", {
+      videoId: state.djur.video,
+      playerVars: { rel: 0, modestbranding: 1, origin: location.origin },
+      events: {
+        onReady: function () { ytReady = true; applyStepSeek(); },
+        onError: function () { ytMisslyckades = true; }
+      }
+    });
+  } catch (e) {
+    ytMisslyckades = true;
+  }
+}
+
+function applyStepSeek() {
+  if (!ytPlayer || !ytReady || !state.djur) return;
+  const max = state.djur.steg.length;
+  let frac = (state.steg - 1) / Math.max(max - 1, 1);
+  if (state.steg === max) frac = 0.97;
+  try {
+    const dur = ytPlayer.getDuration();
+    if (dur > 0) {
+      ytPlayer.seekTo(frac * dur, true);
+      ytPlayer.playVideo();
+    }
+  } catch (e) { /* spelaren inte redo än – användaren kan trycka play själv */ }
 }
 
 /* ---------- Init ---------- */

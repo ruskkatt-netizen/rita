@@ -7,6 +7,7 @@ const DJUR = [
     video: "lAssLDSJ7Lk",
     sök: "rita en realistisk katt på 30 sekunder steg för steg",
     tips: "Tips: katten har lång svans som pekar uppåt och spetsiga öron – börja med dem!",
+    stegNamn: ["Grundform: kropp, ben, öron och svans", "Skuggning: mörkare under buken och på benen", "Detaljer: ögon, nos, morrhår", "Slutfinish: ljus på ryggen + vit prick i ögat"],
     stegText: [
       "Grundform: rita kroppen som en oval, huvudet som en cirkel, fyra smala ben, spetsiga öron och en lång svans som böjer uppåt.",
       "Skuggning: lägg en mörkare grå nyans under buken, på benens nedre del och en mjuk skugga på marken under katten.",
@@ -28,6 +29,7 @@ const DJUR = [
     video: "uSnC2SdemX4",
     sök: "rita en söt hund på 1 minut steg för steg barn",
     tips: "Tips: hundens öron hänger ner – det är det som gör att det blir en hund och inte en katt!",
+    stegNamn: ["Grundform: kropp, huvud och svans", "Skuggning: under buken och på benen", "Detaljer: ögon, nos, hängande öra och hovar", "Slutfinish: ljus på ryggen"],
     stegText: [
       "Grundform: oval kropp, runt huvud med lång nos, fyra ben, en svans som pekar upp och öron som hänger ner.",
       "Skuggning: mörkare brun under buken, på benens nedre delar, under huvudet och på marken.",
@@ -49,6 +51,7 @@ const DJUR = [
     video: "TmsosyfwNek",
     sök: "rita en kanin på en minut one minute art barn",
     tips: "Tips: kaninen har ett stort bakben och två jättelånga öron – det är nyckeln till att det blir en kanin!",
+    stegNamn: ["Grundform: kropp, långa öron och bakben", "Skuggning: under buken och på benen", "Detaljer: ögon, rosa nos och morrhår", "Slutfinish: ljus på ryggen"],
     stegText: [
       "Grundform: oval kropp, runt huvud, två långa öron, ett stort bakben, två tunna framfötter och en liten rund svans.",
       "Skuggning: ljusgrå skugga under buken, på bakbenet och på marken under kaninen.",
@@ -70,6 +73,7 @@ const DJUR = [
     video: "mHBVshs32hc",
     sök: "rita en fågel på en minut steg för steg barn",
     tips: "Tips: fågeln från sidan – rund kropp, litet huvud med trekantig näbb och två tunna ben.",
+    stegNamn: ["Grundform: kropp, huvud, näbb och ben", "Skuggning: ljus mage, mörk vinge", "Detaljer: öga och fjädrar på vingen", "Slutfinish: ljus på huvudet"],
     stegText: [
       "Grundform: rund kropp, litet huvud, trekantig näbb, stjärtfjädrar bakåt och två tunna ben.",
       "Skuggning: mörkare brun på vingens övre del och en ljusare mage under kroppen.",
@@ -91,6 +95,7 @@ const DJUR = [
     video: "4PeLeY6VQmY",
     sök: "rita en fisk steg för steg skuggning barn",
     tips: "Tips: fisken är bredast i mitten, smal vid munnen och har fenor ovanpå och under.",
+    stegNamn: ["Grundform: kropp, stjärt och fenor", "Skuggning: mörk ovanpå, ljus under", "Detaljer: öga, mun, gälar och fjäll", "Slutfinish: bubblor + ljus i ögat"],
     stegText: [
       "Grundform: avlång kropp (bredast i mitten), trekantig stjärt, fena på ryggen och en liten bröstfena.",
       "Skuggning: mörkare blå överst på kroppen och ljusare blå på buken – det gör fisken rund!",
@@ -112,6 +117,7 @@ const DJUR = [
     video: "W9VoLDE8cxE",
     sök: "rita en gris på 1 minut steg för steg barn",
     tips: "Tips: grisens tryne ska sitta längst fram på huvudet – och svansen ska vara en liten krull!",
+    stegNamn: ["Grundform: tjock kropp, tryne och krullsvans", "Skuggning: under buken och på benen", "Detaljer: ögon, näsborrar, hovar och fläck", "Slutfinish: ljusrosa rygg"],
     stegText: [
       "Grundform: tjock rund kropp, runt huvud med trekantiga öron, cylinderformat tryne, fyra korta ben och en krullig svans.",
       "Skuggning: mörkare rosa under buken, på benen, runt trynet och på marken.",
@@ -133,6 +139,7 @@ const DJUR = [
     video: "yMK7tMMjRUo",
     sök: "rita en anka på en minut steg för steg barn",
     tips: "Tips: en anka simmar gärna – rita kroppen platt ovanför vattenlinjen och huvudet med platt näbb!",
+    stegNamn: ["Grundform: kropp på vattnet, huvud och näbb", "Skuggning: i vattnet och under huvudet", "Detaljer: öga och vinge", "Slutfinish: ljus på huvudet + vågor"],
     stegText: [
       "Grundform: platt kropp som ligger på vattnet, runt huvud, platt bred näbb, uppåtböjd stjärt och en våglinje under.",
       "Skuggning: mörkare gul/orange under kroppen (i vattnet) och under huvudet.",
@@ -154,6 +161,7 @@ const DJUR = [
     video: "PFMN4X3O9t0",
     sök: "rita en uggla på några minuter steg för steg barn",
     tips: "Tips: ugglan tittar rakt fram – två stora ögon med platt ansikte emellan är det viktigaste.",
+    stegNamn: ["Grundform: kropp, huvud och öron", "Skuggning: vingar och mage", "Detaljer: stora ögon, näbb och fjäll", "Slutfinish: ljus på huvudet"],
     stegText: [
       "Grundform: avlång kropp, runt huvud med två spetsiga öron, två stora ögon och små fötter.",
       "Skuggning: mörkare brun på vingarna och under magen, plus skugga på marken.",
@@ -175,6 +183,7 @@ const DJUR = [
     video: "EynIk8uhX_w",
     sök: "rita en björn på några minuter steg för steg barn",
     tips: "Tips: björnen är tung och bred – små runda öron och ett kraftigt tryne gör helheten.",
+    stegNamn: ["Grundform: kraftig kropp, små öron och tryne", "Skuggning: under buken och på benen", "Detaljer: ögon, nos, mun och klor", "Slutfinish: ljus över axlarna"],
     stegText: [
       "Grundform: tjock kraftig kropp, runt huvud med små runda öron, kraftigt tryne, fyra tjocka ben.",
       "Skuggning: mörkare brun under buken, på benen, vid trynet och en skugga på marken.",
@@ -196,6 +205,7 @@ const DJUR = [
     video: "x4lfxxYQx34",
     sök: "rita en räv på under 3 minuter steg för steg barn",
     tips: "Tips: räven har spetsig nos, spetsiga öron och en stor buskig svans med vit spets.",
+    stegNamn: ["Grundform: smal kropp, spetsig nos och stor svans", "Skuggning: under buken och längs svansen", "Detaljer: ögon, svart nos, vit bröstfläck och svansspets", "Slutfinish: ljus på ryggen"],
     stegText: [
       "Grundform: smal kropp, huvud med spetsig nos, två spetsiga öron, fyra smala ben och en stor buskig svans.",
       "Skuggning: mörkare orange under buken, på benen, längs svansens undersida och på marken.",
@@ -217,6 +227,7 @@ const DJUR = [
     video: "9fiG2q9fCF4",
     sök: "rita en apa på två minuter steg för steg barn",
     tips: "Tips: sittande apa – ljus ansiktsmask inuti mörkare huvud, lång arm och en svans som krullar sig.",
+    stegNamn: ["Grundform: sittande kropp, ansikte och krullsvans", "Skuggning: under buken och på armen", "Detaljer: ögon, näsborrar och mun", "Slutfinish: ljus på ansiktet"],
     stegText: [
       "Grundform: sittande kropp, huvud med ljus ansiktsmask, två runda öron, en lång arm, fot och en krullig svans.",
       "Skuggning: mörkare brun under buken, på armen och under huvudet, plus skugga på marken.",
@@ -238,6 +249,7 @@ const DJUR = [
     video: "SOZ-v-fylWQ",
     sök: "rita en tiger på under 60 sekunder shorts steg för steg",
     tips: "Tips: tiger = stor katt med svarta ränder – rita ränderna som korta, ojämna streck över hela kroppen.",
+    stegNamn: ["Grundform: kraftig kropp, öron och svans", "Skuggning: ljus buk, mörka ben", "Detaljer: svarta ränder, ögon, nos och hovar", "Slutfinish: ljus på ryggen"],
     stegText: [
       "Grundform: kraftig kropp, stort huvud med rundade öron, lång svans och fyra kraftiga ben – som en stor katt.",
       "Skuggning: ljusgul buk och mörkare orange på benens nedre delar, under huvudet och på marken.",
@@ -259,6 +271,7 @@ const DJUR = [
     video: "ygWQuM3P8n0",
     sök: "rita en ko på en minut steg för steg barn",
     tips: "Tips: kossan känns igen på hornen, öronen åt sidan, rosa trynet och de svarta fläckarna.",
+    stegNamn: ["Grundform: stor kropp, horn, öron och svans", "Skuggning: under buken och på benen", "Detaljer: svarta fläckar, ögon, näsborrar och hovar", "Slutfinish: ljus på ryggen"],
     stegText: [
       "Grundform: stor kraftig kropp, huvud med horn och öron åt sidan, rosa tryne, fyra ben och en svans med tofs.",
       "Skuggning: ljusgrå under buken, på benens nedre delar, under huvudet och på marken.",
@@ -280,6 +293,7 @@ const DJUR = [
     video: "5rQQBkFFjrY",
     sök: "rita ett lejon på 2 minuter steg för steg nybörjare",
     tips: "Tips: börja med lejonet – en stor mörk cirkel bakom huvudet. Själva huvudet är cirkeln inuti.",
+    stegNamn: ["Grundform: kropp, stor lejon och svans", "Skuggning: under buken, benen och runt lejonet", "Detaljer: streck i lejonet, ögon, nos och hovar", "Slutfinish: ljust bröst"],
     stegText: [
       "Grundform: kraftig kropp, stor mörk lejon-cirkel bakom huvudet, själva huvudet inuti, fyra ben och svans med tofs.",
       "Skuggning: mörkare brun under buken, på benen, runt lejonet och på marken.",
@@ -301,6 +315,7 @@ const DJUR = [
     video: "rCqMntZt-iE",
     sök: "rita en häst på 2 minuter steg för steg barn",
     tips: "Tips: hästen har lång hals och långt huvud – rita halsen som ett avlångt band upp från kroppen.",
+    stegNamn: ["Grundform: kropp, lång hals, huvud och man", "Skuggning: under buken, benen och halsen", "Detaljer: öga, näsborre, hovar och extra man", "Slutfinish: ljus längs ryggen"],
     stegText: [
       "Grundform: kropp, lång hals uppåt, avlångt huvud med nos, två spetsiga öron, man längs halsen, fyra ben och svans.",
       "Skuggning: mörkare brun under buken, på benen, längs halsen och på marken.",
@@ -322,6 +337,7 @@ const DJUR = [
     video: "E9WkeXzASTY",
     sök: "rita en elefant på 2 minuter steg för steg barn",
     tips: "Tips: elefanten känns igen på de stora öronen, den långa snabeln och de pelarliknande benen.",
+    stegNamn: ["Grundform: jättekropp, öra, snabel och pelarben", "Skuggning: under buken, benen, snabeln och örat", "Detaljer: öga, tånaglar och mun", "Slutfinish: stor ljus båge på ryggen"],
     stegText: [
       "Grundform: jättestor kropp, stort huvud med stor öra, lång snabel som hänger ner, fyra pelarben, svans och betar.",
       "Skuggning: mörkare gråblå under buken, på benen, på snabeln, i örat och på marken.",

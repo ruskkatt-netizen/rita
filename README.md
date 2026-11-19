@@ -7,7 +7,7 @@ En interaktiv teckningsguide på svenska för barn (ca 8–12 år) – tänkt so
 - **16 djur** (katt, hund, kanin, fågel, fisk, gris, anka, uggla, björn, räv, apa, tiger, ko, lejon, häst, elefant) – varje djurkort visar tydligt **hur den färdiga bilden blir**.
 - **Realistiska men förenklade bilder** – djuren ritas från sidan med riktiga proportioner (inte tecknade ansikten), i enkel stil som funkar på papper.
 - **🎬 Video-flik** – inbäddad **kort** YouTube-video (oftast 1–2 min, via `youtube-nocookie` utan spårning) bredvid en stor ruta **"✨ Så här blir resultatet!"** med slutbilden. Länkar för att öppna videon på YouTube och för att söka fler videor.
-- **👣 Steg för steg** – fyra faser anpassade för nivå ~10 år med **fokus på skuggning**: **Grundform → Skuggning → Detaljer → Slutfinish**, med progressionsindikator, SVG som byggs upp stegvis och ett tips per djur.
+- **👣 Steg för steg** – fyra faser anpassade för nivå ~10 år med **fokus på skuggning**: **Grundform → Skuggning → Detaljer → Slutfinish**. Varje steg har ett **relevant namn per djur** (t.ex. "Grundform: kropp, ben, öron och svans"). I steg-vyn finns dessutom en videospelare som **automatiskt hoppar till rätt del av videon när man byter steg** (YouTube IFrame API, steg 1 = början, steg 2 = ⅓ in, osv.). Progressionsindikator, SVG som byggs upp stegvis och tips per djur ingår.
 - **🖍️ Rita själv** – egen rityta med färgpalett, penselstorlek, suddgummi, möjlighet att visa målbilden svagt (spåra), rensa, spara till **Min ritgalleri** (localStorage) och ladda ner som PNG.
 - **🧠 Quiz** – "Gissa djuret!" med 8 slumpade frågor; rätt svar ger stjärnor.
 - **⭐ Stjärnor** – samla stjärnor när du klarar ett djur eller svarar rätt i quizet (sparas i webbläsarens localStorage).
