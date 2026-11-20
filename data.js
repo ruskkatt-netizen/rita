@@ -4,8 +4,8 @@ const DJUR = [
     namn: "Katt",
     emoji: "🐱",
     nivå: 1,
-    video: "lAssLDSJ7Lk",
-    sök: "rita en realistisk katt på 30 sekunder steg för steg",
+    video: "SQkeqh0yFMA",
+    sök: "rita en katt steg för steg med kapitel youtube barn",
     tips: "Tips: katten har lång svans som pekar uppåt och spetsiga öron – börja med dem!",
     stegNamn: ["Grundform: kropp, ben, öron och svans", "Skuggning: mörkare under buken och på benen", "Detaljer: ögon, nos, morrhår", "Slutfinish: ljus på ryggen + vit prick i ögat"],
     stegText: [

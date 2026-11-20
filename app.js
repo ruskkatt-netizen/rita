@@ -97,7 +97,7 @@ function renderaGrid() {
     btn.type = "button";
     const klar = ritade.includes(d.id);
     btn.innerHTML =
-      '<span class="card-art">' + djurSVG(d) + "</span>" +
+      '<span class="card-art"><img src="assets/' + d.id + '.jpg" alt="' + d.namn + '" loading="lazy"></span>' +
       '<span class="card-name">' + d.emoji + " " + d.namn + "</span>" +
       '<span class="card-level">' + "★".repeat(d.nivå) + "☆".repeat(3 - d.nivå) + "</span>" +
       (klar ? '<span class="card-done">⭐ klar</span>' : "");
@@ -152,8 +152,8 @@ function visaDjur(d) {
   $("view-animal").hidden = false;
   $("animalTitle").textContent = d.emoji + " " + d.namn;
   $("animalLevel").textContent = "★".repeat(d.nivå) + "☆".repeat(3 - d.nivå);
-  $("animalPreview").innerHTML = djurSVG(d);
-  $("resultPreview").innerHTML = djurSVG(d);
+  $("animalPreview").innerHTML = '<img src="assets/' + d.id + '.jpg" alt="' + d.namn + '">';
+  $("resultPreview").innerHTML = '<img src="assets/' + d.id + '.jpg" alt="Så här blir ' + d.namn.toLowerCase() + ' när den är klar">';
   $("ytLink").href = "https://www.youtube.com/watch?v=" + d.video;
   $("ytSearch").href = "https://www.youtube.com/results?search_query=" + encodeURIComponent(d.sök);
 
@@ -335,7 +335,7 @@ $("traceBtn").addEventListener("click", () => {
   const overlay = $("traceOverlay");
   const på = overlay.hidden;
   overlay.hidden = !på;
-  if (på && state.djur) overlay.innerHTML = djurSVG(state.djur);
+  if (på && state.djur) overlay.innerHTML = '<img src="assets/' + state.djur.id + '.jpg" alt="">';
   $("traceBtn").setAttribute("aria-pressed", String(på));
   $("traceBtn").textContent = på ? "🙈 Dölj målbild" : "👻 Visa målbild";
 });
@@ -409,7 +409,7 @@ function renderaQuizFråga() {
   q.besvarad = false;
   box.innerHTML =
     '<p class="step-count">Fråga ' + (q.index + 1) + " av " + q.frågor.length + "</p>" +
-    '<div class="quiz-art">' + djurSVG(d) + "</div>" +
+    '<div class="quiz-art"><img src="assets/' + d.id + '.jpg" alt="Mysteriskt djur"></div>' +
     '<p class="quiz-q">Vilket djur är det här?</p>' +
     '<div class="quiz-options">' +
     alternativ.map((a) => '<button class="btn ghost quiz-opt" data-id="' + a.id + '">' + a.emoji + " " + a.namn + "</button>").join("") +
