@@ -50,6 +50,8 @@ Lägg till ett objekt i `DJUR` i `data.js`:
   emoji: "🐸",
   nivå: 1,                       // 1–3 stjärnor
   video: "YOUTUBE_VIDEO_ID",     // 11 tecken från youtube.com/watch?v=...
+  stegTider: [0, 30, 60, 90],   // valfritt: kapitel/steg-tidsstämplar i sekunder –
+                                 // då hoppar steg 1–4 exakt dit i videon
   sök: "hur man ritar en groda steg för steg barn",
   tips: "Tips: ...",
   stegText: ["Grundform …", "Skuggning …", "Detaljer …", "Slutfinish …"],
@@ -61,4 +63,4 @@ Varje `steg`-fragment är SVG-innehåll i en `viewBox="0 0 200 200"`. Stegen vis
 
 ## Videolänkar
 
-Videorna är valda för att vara **korta** (1–2 min, flera #shorts) **och redan indelade i steg** ("step by step"-tutorials där varje steg visas på skärmen; vissa har även kapitel). I steg-vyn hoppar spelaren till rätt del av videon per steg. Vill du byta ut en video ändrar du bara `video`-id:t i `data.js`. ”Fler videor”-länken går till en YouTube-sökning på svenska.
+Videorna är valda för att vara **korta** **och redan indelade i steg inuti själva videon** – med kapitel/tidsstämplar ("0:00 Intro, 0:31 Step 1 …") i beskrivningen. När ett djur har `stegTider` i `data.js` hoppar spelaren i steg-vyn **exakt till videons eget kapitel** för steg 1–4; annars fördelas stegen jämnt över videons längd. Katt, gris, uggla och björn har verifierade kapitel just nu. Vill du byta ut en video ändrar du bara `video`-id:t (och helst `stegTider`) i `data.js`. ”Fler videor”-länken går till en YouTube-sökning på svenska.

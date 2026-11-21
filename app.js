@@ -495,15 +495,24 @@ function skapaStegVideo() {
 
 function applyStepSeek() {
   if (!ytPlayer || !ytReady || !state.djur) return;
-  const max = state.djur.steg.length;
-  let frac = (state.steg - 1) / Math.max(max - 1, 1);
-  if (state.steg === max) frac = 0.97;
+  const d = state.djur;
+  const max = d.steg.length;
+  // Om videon har kapitel/steg-tidsstämplar (stegTider i sekunder) – hoppa exakt dit,
+  // annars fördela jämnt över videons längd.
+  let target = null;
+  if (Array.isArray(d.stegTider) && d.stegTider.length >= max) {
+    target = d.stegTider[state.steg - 1];
+  }
   try {
-    const dur = ytPlayer.getDuration();
-    if (dur > 0) {
-      ytPlayer.seekTo(frac * dur, true);
-      ytPlayer.playVideo();
+    if (target === null || target === undefined) {
+      let frac = (state.steg - 1) / Math.max(max - 1, 1);
+      if (state.steg === max) frac = 0.97;
+      const dur = ytPlayer.getDuration();
+      if (!(dur > 0)) return;
+      target = frac * dur;
     }
+    ytPlayer.seekTo(target, true);
+    ytPlayer.playVideo();
   } catch (e) { /* spelaren inte redo än – användaren kan trycka play själv */ }
 }
 
