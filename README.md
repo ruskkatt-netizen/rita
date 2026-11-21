@@ -5,9 +5,9 @@ En interaktiv teckningsguide på svenska för barn (ca 8–12 år) – tänkt so
 ## Funktioner
 
 - **16 djur** (katt, hund, kanin, fågel, fisk, gris, anka, uggla, björn, räv, apa, tiger, ko, lejon, häst, elefant) – varje djurkort visar tydligt **hur den färdiga bilden blir**.
-- **Realistiska bilder i enhetlig stil** – varje djur har en AI-genererad, realistisk pennteckning i sidvy på vit bakgrund (`assets/<id>.jpg`), som visas på djurkorten, i "Så här blir resultatet!", i quizet och som spårningsbild på ritytan. Steg-för-steg-vyn använder dessutom schematiska SVG-steg (grundform → skuggning → detaljer → slutfinish).
-- **🎬 Video-flik** – inbäddad **kort** YouTube-video (oftast 1–2 min, via `youtube-nocookie` utan spårning) bredvid en stor ruta **"✨ Så här blir resultatet!"** med slutbilden. Länkar för att öppna videon på YouTube och för att söka fler videor.
-- **👣 Steg för steg** – fyra faser anpassade för nivå ~10 år med **fokus på skuggning**: **Grundform → Skuggning → Detaljer → Slutfinish**. Varje steg har ett **relevant namn per djur** (t.ex. "Grundform: kropp, ben, öron och svans"). I steg-vyn finns dessutom en videospelare som **automatiskt hoppar till rätt del av videon när man byter steg** (YouTube IFrame API, steg 1 = början, steg 2 = ⅓ in, osv.). Progressionsindikator, SVG som byggs upp stegvis och tips per djur ingår.
+- **🖼️ Resultatbilden kommer från videon** – varje djur har en bild (`assets/<id>.jpg`) hämtad från respektive YouTube-video (dess thumbnail/bildruta), som visas på djurkorten, i "Så här blir resultatet!", i quizet och som spårningsbild på ritytan. Steg-för-steg-vyn använder dessutom schematiska SVG-steg (grundform → skuggning → detaljer → slutfinish).
+- **🎬 Video-flik** – inbäddad YouTube-video – **realistisk pennteckning (ej cartoon)** som redan är **indelad i tydliga steg/kapitel inuti videon** (via `youtube-nocookie` utan spårning) bredvid en stor ruta **"✨ Så här blir resultatet!"** med slutbilden. Länkar för att öppna videon på YouTube och för att söka fler videor.
+- **👣 Steg för steg** – fyra faser anpassade för nivå ~10 år med **fokus på skuggning**: **Grundform → Skuggning → Detaljer → Slutfinish**. Varje steg har ett **relevant namn per djur** (t.ex. "Grundform: kropp, ben, öron och svans"). I steg-vyn finns dessutom en videospelare som **automatiskt hoppar till videons eget kapitel för steget** via `stegTider` i `data.js` (utan `stegTider` fördelas stegen jämnt över videons längd) (YouTube IFrame API, steg 1 = början, steg 2 = ⅓ in, osv.). Progressionsindikator, SVG som byggs upp stegvis och tips per djur ingår.
 - **🖍️ Rita själv** – egen rityta med färgpalett, penselstorlek, suddgummi, möjlighet att visa målbilden svagt (spåra), rensa, spara till **Min ritgalleri** (localStorage) och ladda ner som PNG.
 - **🧠 Quiz** – "Gissa djuret!" med 8 slumpade frågor; rätt svar ger stjärnor.
 - **⭐ Stjärnor** – samla stjärnor när du klarar ett djur eller svarar rätt i quizet (sparas i webbläsarens localStorage).
@@ -37,7 +37,7 @@ cd rita
 | `styles.css` | Utseende – lekfull barnprofil, responsivt |
 | `data.js` | Alla djur: namn, emoji, svårighet, YouTube-video-id, sökfras, tips, stegNamn[4], 4 steg (SVG) + stegtexter |
 | `app.js` | All logik: routing via hash, rutnät, videospelare, videodel per steg (YT IFrame API), steg-för-steg, rityta (canvas), galleri, quiz, stjärnor |
-| `assets/<id>.jpg` | 16 AI-genererade realistiska referensbilder (en per djur) |
+| `assets/<id>.jpg` | 16 bilder hämtade från respektive YouTube-video (thumbnail/bildruta), en per djur |
 
 ## Lägga till ett nytt djur
 
@@ -63,4 +63,4 @@ Varje `steg`-fragment är SVG-innehåll i en `viewBox="0 0 200 200"`. Stegen vis
 
 ## Videolänkar
 
-Videorna är valda för att vara **korta** **och redan indelade i steg inuti själva videon** – med kapitel/tidsstämplar ("0:00 Intro, 0:31 Step 1 …") i beskrivningen. När ett djur har `stegTider` i `data.js` hoppar spelaren i steg-vyn **exakt till videons eget kapitel** för steg 1–4; annars fördelas stegen jämnt över videons längd. Katt, gris, uggla och björn har verifierade kapitel just nu. Vill du byta ut en video ändrar du bara `video`-id:t (och helst `stegTider`) i `data.js`. ”Fler videor”-länken går till en YouTube-sökning på svenska.
+Videorna är valda för att vara **realistiska (ej cartoon) och redan indelade i tydliga steg/kapitel inuti själva videon** – kapitel som "0:53 Circle", "10:02 shading" eller "PAUSA efter varje steg" (verifierade mot varje videos kapitellista på YouTube). Alla 16 djur har `stegTider` i `data.js`, så spelaren i steg-vyn hoppar **exakt till videons eget kapitel** för steg 1–4. Bilderna i `assets/` är hämtade från respektive video. Vill du byta ut en video ändrar du bara `video`-id:t (och helst `stegTider`) i `data.js` – hämta gärna en ny bild från videon också (`https://i.ytimg.com/vi/<id>/maxresdefault.jpg`). ”Fler videor”-länken går till en YouTube-sökning på svenska.
